@@ -1,5 +1,6 @@
 import reactImg from './assets/react-core-concepts.png';
 import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -22,6 +23,9 @@ const description = reactDescriptions[Math.floor(Math.random() * reactDescriptio
 }
 
 
+
+
+
 function CoreConcept(props) {
   return (
     <li>
@@ -41,12 +45,20 @@ function App() {
       <Header/>
       <Header/>
       <main>
+
         <section id="core-concepts">
+          
           <ul>
-            <CoreConcept title = "Components" description = "The building blocks of a React application"  image={componentsImg} />
-            <CoreConcept title = "Props" description = "Short for properties, used to pass data between components"  image={componentsImg} />
-            <CoreConcept title = "Diego" description = "um programador dos bons" image={componentsImg} />
+            {CORE_CONCEPTS.map((concept) => (
+              <CoreConcept
+                key={concept.title}
+                title={concept.title}
+                description={concept.description}
+                image={concept.image}
+              />
+            ))}
            
+
           </ul>
         </section>
         <h2>Time to get started!</h2>
